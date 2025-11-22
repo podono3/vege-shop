@@ -3,21 +3,35 @@ let cart = [];
 // カートに追加
 function addToCart(id) {
     const product = products.find(p => p.id === id);
-    cart.push(product);
+
+    // すでにカートにあるかチェック
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity++; // 数量を増やす
+    } else {
+        cart.push({ ...product, quantity: 1 }); // 初回は quantity: 1
+    }
+
     renderCart();
 }
 
-// カートを表示
+// カート表示
 function renderCart() {
     const list = document.getElementById("cart-list");
     list.innerHTML = "";
 
-    cart.forEach((item, index) => {
+    let total = 0;
+
+    cart.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.price}円`;
+
+        li.textContent = `${item.name} - ${item.price}円 ×${item.quantity}`;
+
+        total += item.price * item.quantity;
+
         list.appendChild(li);
     });
 
-    document.getElementById("total").textContent =
-        cart.reduce((t, item) => t + item.price, 0) + "円";
+    document.getElementById("total").textContent = total + "円";
 }
