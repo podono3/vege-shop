@@ -111,3 +111,19 @@ h2 {
 #checkout:hover {
     background: #0059c9;
 }
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    margin-bottom: 5px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+li .price {
+    margin-left: auto;
+}

@@ -25,8 +25,13 @@ function renderCart() {
 
     cart.forEach(item => {
         const li = document.createElement("li");
-
-        li.textContent = `${item.name} - ${item.price}円 ×${item.quantity}`;
+        const divNameQty = document.createElement("div");
+        divNameQty.textContent = `${item.name} × ${item.quantity}`;
+        const divPrice = document.createElement("div");
+        divPrice.className = "price";
+        divPrice.textContent = `${item.price * item.quantity}円`;
+        li.appendChild(divNameQty);
+        li.appendChild(divPrice);
 
         total += item.price * item.quantity;
 
