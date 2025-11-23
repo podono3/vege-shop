@@ -127,3 +127,53 @@ li {
 li .price {
     margin-left: auto;
 }
+
+/* ボタンのスタイル調整 */
+/* --- カート数量コントロール --- */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* ボタンと数字の間隔 */
+}
+
+/* --- ボタンの3Dデザイン --- */
+.quantity-controls button {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+    background: linear-gradient(145deg, #ffffff, #d9d9d9);
+    box-shadow: 4px 4px 8px #c5c5c5,
+        -4px -4px 8px #ffffff;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+
+    transition: 0.15s ease;
+}
+
+/* hover時（浮く感じ） */
+.quantity-controls button:hover {
+    background: linear-gradient(145deg, #fff4f4, #dedede);
+}
+
+/* 押した感じ（へこむ3D） */
+.quantity-controls button:active {
+    box-shadow: inset 4px 4px 6px #c8c8c8,
+        inset -4px -4px 6px #ffffff;
+    background: linear-gradient(145deg, #e5e5e5, #ffffff);
+    transform: translateY(1px);
+}
+
+/* --- 数字のスタイル --- */
+.quantity-controls span {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
